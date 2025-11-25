@@ -5,11 +5,11 @@
 
 from isaaclab.utils import configclass
 
-from .rough_env_cfg import UnitreeA1RoughEnvCfg
+from .rough_env_cfg import SpotMicroRoughEnvCfg
 
 
 @configclass
-class UnitreeA1FlatEnvCfg(UnitreeA1RoughEnvCfg):
+class SpotMicroFlatEnvCfg(SpotMicroRoughEnvCfg):
     def __post_init__(self):
         # post init of parent
         super().__post_init__()
@@ -28,7 +28,7 @@ class UnitreeA1FlatEnvCfg(UnitreeA1RoughEnvCfg):
         self.curriculum.terrain_levels = None
 
 
-class UnitreeA1FlatEnvCfg_PLAY(UnitreeA1FlatEnvCfg):
+class SpotMicroFlatEnvCfg_PLAY(SpotMicroFlatEnvCfg):
     def __post_init__(self) -> None:
         # post init of parent
         super().__post_init__()

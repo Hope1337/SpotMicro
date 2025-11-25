@@ -56,25 +56,25 @@ SPOT_MICRO_CFG = ArticulationCfg(
         joint_vel={".*": 0.0}, 
     ),
     
-    actuators={
-        "servos": DCMotorCfg(
-            joint_names_expr=joints,
-            effort_limit=33.5,
-            saturation_effort=33.5,
-            velocity_limit=21.0,
-            stiffness=25.0,
-            damping=0.5,
-            friction=0.0,
-        ),
-    }
     #actuators={
-        #"servos": ImplicitActuatorCfg(
+        #"servos": DCMotorCfg(
             #joint_names_expr=joints,
-            ##velocity_limit=8.0,
-            #effort_limit=45.,
-            #stiffness=20.,  
-            #damping=0.5,    
-            #armature=0.0
+            #effort_limit=33.5,
+            #saturation_effort=33.5,
+            #velocity_limit=21.0,
+            #stiffness=25.0,
+            #damping=0.5,
+            #friction=0.0,
         #),
     #}
+    actuators={
+        "servos": ImplicitActuatorCfg(
+            joint_names_expr=joints,
+            #velocity_limit=8.0,
+            effort_limit=45.,
+            stiffness=60.,  
+            damping=1.5,    
+            armature=0.0
+        ),
+    }
 )

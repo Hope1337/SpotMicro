@@ -9,11 +9,11 @@ from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlPpoActorCriticCfg, R
 
 
 @configclass
-class UnitreeA1RoughPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+class SpotMicroRoughPPORunnerCfg(RslRlOnPolicyRunnerCfg):
     num_steps_per_env = 24
     max_iterations = 1500
     save_interval = 50
-    experiment_name = "unitree_a1_rough"
+    experiment_name = "spot_micro_rough"
     policy = RslRlPpoActorCriticCfg(
         init_noise_std=1.0,
         actor_obs_normalization=False,
@@ -39,11 +39,11 @@ class UnitreeA1RoughPPORunnerCfg(RslRlOnPolicyRunnerCfg):
 
 
 @configclass
-class UnitreeA1FlatPPORunnerCfg(UnitreeA1RoughPPORunnerCfg):
+class SpotMicroFlatPPORunnerCfg(SpotMicroRoughPPORunnerCfg):
     def __post_init__(self):
         super().__post_init__()
 
         self.max_iterations = 300
-        self.experiment_name = "unitree_a1_flat"
+        self.experiment_name = "spot_micro_flat"
         self.policy.actor_hidden_dims = [128, 128, 128]
         self.policy.critic_hidden_dims = [128, 128, 128]
